@@ -1,0 +1,36 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class OddEven {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        boolean exit = false;
+
+        while (!exit) {
+            try {
+                System.out.print("Enter a number (or 'q' to quit): ");
+                String input = sc.nextLine();
+
+                if (input.equalsIgnoreCase("q")) {
+                    exit = true;
+                } else {
+                    int num = Integer.parseInt(input);
+                    if (num == 0) {
+                        System.out.println("\nYou entered zero");
+                    } else if (num % 2 == 0) {
+                        System.out.println("\nYou entered an even number");
+                    } else {
+                        System.out.println("\nYou entered an odd number");
+                    }
+                }
+
+            } catch (InputMismatchException | NumberFormatException e) {
+                System.out.print("Invalid input, please enter a number or 'q' to quit.\n");
+            }
+        }
+
+        sc.close();
+        System.out.println("Exiting the program.");
+    }
+}
